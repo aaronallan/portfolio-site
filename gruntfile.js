@@ -6,7 +6,7 @@ grunt.initConfig({
 
   watch: {
     stylus: {
-      files: './_/css/base.styl',
+      files: './css/base.styl',
       tasks: ['stylus','concat']
     }
   },
@@ -14,11 +14,11 @@ grunt.initConfig({
   stylus: {
     compile: {
       options: { 
-        paths: ["./_/css/"],
+        paths: ["./css/"],
         import: [ 'nib' ]
       },
       files: {
-        "./_/css/base.css": ["./_/css/base.styl"]
+        "./css/base.css": ["./css/base.styl"]
       }
     }
   },
@@ -26,28 +26,28 @@ grunt.initConfig({
   concat: {
     css: {
       src: [
-        "./_/css/reset.css",
-        "./_/css/base.css"
+        "./css/reset.css",
+        "./css/base.css"
       ],
-      dest: "./_/css/style.css"
+      dest: "./css/style.css"
     },
 
     libs: {
         src: [
-            '_/js/jquery-1.9.1.min.js',
-            '_/js/jquery-ui-1.10.4.custom.min.js',
-            '_/js/waypoints.min.js',
-            '_/js/waypoints-sticky.min.js' 
+            './js/jquery-1.9.1.min.js',
+            './js/jquery-ui-1.10.4.custom.min.js',
+            './js/waypoints.min.js',
+            './js/waypoints-sticky.min.js' 
         ],
-        dest: '_/js/build/libs-production.js',
+        dest: './js/build/libs-production.js',
     },
 
     functions: {
         src: [
-            '_/js/ajaxcontact.js',
-            '_/js/functions.js' 
+            './js/ajaxcontact.js',
+            './js/functions.js' 
         ],
-        dest: '_/js/build/production.js',
+        dest: './js/build/production.js',
     }
   },
 
@@ -57,8 +57,8 @@ grunt.initConfig({
     },
     my_target: {
       files: {
-        '_/js/build/libs-production-min.js': ['_/js/build/libs-production.js'],
-        '_/js/build/production-min.js': ['_/js/build/production.js'],
+        './js/build/libs-production-min.js': ['./js/build/libs-production.js'],
+        './js/build/production-min.js': ['./js/build/production.js'],
 
       }
     }
