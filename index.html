@@ -270,9 +270,17 @@
 		    <p class="sub-title text-wrapper">Interested in working together? Great, I would love to hear about your project!  Please contact me at <span class="cta"><a href="mailto:aaron.a.pollock@gmail.com">aaron.a.pollock@gmail.com</a></span></p>
 
 		    <form action="//formspree.io/aaron.a.pollock@gmail.com" method="POST">
-			    <input type="text" name="name">
-			    <input type="email" name="_replyto">
-			    <input type="submit" value="Send">
+		    	<div class="col-50">
+				    <input type="text" id="name" name="name" placeholder="Name:">
+				  </div>
+				  <div class="col-50 last">
+			    	<input type="email" id="email" name="_replyto" placeholder="email:">
+			    </div>
+			    <div class="col-100">
+				    <textarea id="message" name="message" placeholder="Message:"></textarea>
+				    <input type="hidden" name="_next" value="http://aaronallan.com" >
+				  </div>
+			    <button type="submit"class="send">Send</button>
 				</form>
 	
 			</div>	
