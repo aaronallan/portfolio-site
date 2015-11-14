@@ -1,52 +1,52 @@
-$(function() {
-  // Get the form.
-  var form = $('#ajax-contact');
+// $(function() {
+//   // Get the form.
+//   var form = $('#ajax-contact');
 
-  // Get the messages div.
-  var formMessages = $('#form-messages');
+//   // Get the messages div.
+//   var formMessages = $('#form-messages');
 
-  // Set up an event listener for the contact form.
-  $(form).submit(function(event) {
-      event.preventDefault();
+//   // Set up an event listener for the contact form.
+//   $(form).submit(function(event) {
+//       event.preventDefault();
 
-    // Serialize the form data.
-    var formData = $(form).serialize();
+//     // Serialize the form data.
+//     var formData = $(form).serialize();
 
-    // Submit the form using AJAX.
-    $.ajax({
-        type: 'POST',
-        url: "//formspree.io/aaron.a.pollock@gmail.com",
-        data: formData,
-        dataType: "json"
-    }).done(function(response) {
-      // Make sure that the formMessages div has the 'success' class.
-      $(formMessages).removeClass('error');
-      $(formMessages).addClass('success');
+//     // Submit the form using AJAX.
+//     $.ajax({
+//         type: 'POST',
+//         url: "//formspree.io/aaron.a.pollock@gmail.com",
+//         data: formData,
+//         dataType: "json"
+//     }).done(function(response) {
+//       // Make sure that the formMessages div has the 'success' class.
+//       $(formMessages).removeClass('error');
+//       $(formMessages).addClass('success');
 
-      // Set the message text.
-      $(formMessages).text(response);
+//       // Set the message text.
+//       $(formMessages).text(response);
 
-      // Clear the form.
-      $('#name').val('');
-      $('#email').val('');
-      $('#message').val('');
-    })
+//       // Clear the form.
+//       $('#name').val('');
+//       $('#email').val('');
+//       $('#message').val('');
+//     })
 
-    .fail(function(data) {
-      // Make sure that the formMessages div has the 'error' class.
-      $(formMessages).removeClass('success');
-      $(formMessages).addClass('error');
+//     .fail(function(data) {
+//       // Make sure that the formMessages div has the 'error' class.
+//       $(formMessages).removeClass('success');
+//       $(formMessages).addClass('error');
 
-      // Set the message text.
-      if (data.responseText !== '') {
-          $(formMessages).text(data.responseText);
-      } else {
-          $(formMessages).text('Oops! An error occured and your message could not be sent.');
-      }
-    });
+//       // Set the message text.
+//       if (data.responseText !== '') {
+//           $(formMessages).text(data.responseText);
+//       } else {
+//           $(formMessages).text('Oops! An error occured and your message could not be sent.');
+//       }
+//     });
 
-  });
-});
+//   });
+// });
 // remap jQuery to $
 (function($){  
 
