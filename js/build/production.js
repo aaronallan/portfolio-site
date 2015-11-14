@@ -15,8 +15,9 @@ $(function() {
     // Submit the form using AJAX.
     $.ajax({
         type: 'POST',
-        url: $(form).attr('action'),
-        data: formData
+        url: "//formspree.io/aaron.a.pollock@gmail.com",
+        data: formData,
+        dataType: "json"
     }).done(function(response) {
       // Make sure that the formMessages div has the 'success' class.
       $(formMessages).removeClass('error');
@@ -43,7 +44,7 @@ $(function() {
           $(formMessages).text('Oops! An error occured and your message could not be sent.');
       }
     });
-      
+
   });
 });
 // remap jQuery to $
