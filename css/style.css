@@ -74,13 +74,9 @@ body,
 }
 
 .connect-container {
-  position: absolute;
-  right: auto;
-  top: auto;
   display: inline-block;
   text-align: center;
   width: 100%;
-  bottom: 10%;
   padding: 0;
 }
 
