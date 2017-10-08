@@ -1,51 +1,59 @@
 html,
 body,
 .container {
+  position: relative;
   width: 100%;
   height: 100%;
   margin: 0;
-}
-
-.main {
-  width: 100%;
   overflow: hidden;
 }
 
 .left-content,
 .right-content {
-  position: relative;
-  float: left;
+  position: absolute;
   width: 100%;
+  height: 100vh;
   margin 0;
 }
 
-@media (min-width: 830px) {
-  .left-content,
-  .right-content {
-    width: 50%;
-    height: 100vh;
-  }
-}
 .left-content {
   background: #49274A;
 }
 
 .right-content {
   background: #94618E;
+  left: 100%;
 }
+
+@media (min-width: 830px) {
+  .left-content,
+  .right-content {
+    float: left;
+    position: relative;
+    width: 50%;
+  }
+
+  .right-content {
+    left: inherit;
+  }
+}
+
 .welcome-container {
   display: inline-block;
+  position: relative;
+  top: 30%;
+  transform: translateY(-30%);
 }
 
 @media (min-width: 830px) {
   .welcome-container {
-    position: relative;
     top: 50%;
     transform: translateY(-50%);
   }
 }
 
 .welcome-text {
+  text-align: center;
   font-size: 1.25em;
   line-height: 1.5em;
   font-weight: 400;
@@ -57,6 +65,7 @@ body,
 
 @media (min-width: 830px) {
   .welcome-text {
+    text-align: left;
     font-size: 1.5em;
     line-height: 1.5em;
     padding: 0 2em;
@@ -66,18 +75,20 @@ body,
 
 .connect-container {
   position: absolute;
-  right: 1em;
-  top: 1em;
+  right: auto;
+  top: auto;
+  display: inline-block;
+  text-align: center;
   width: 100%;
-  margin: 0;
+  bottom: 10vh;
   padding: 0;
 }
+
 
 .connect-container li{
   display: inline-block;
   font-family: 'Arial', sans-serif;
   color: #F8EEE7;
-  float: right;
 }
 
 .connect-container li a{
@@ -85,24 +96,6 @@ body,
   font-family: 'Arial', sans-serif;
   text-decoration: none;
 }
-
-@media (min-width: 830px) {
-  .connect-container {
-    position: absolute;
-    right: auto;
-    top: auto;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    bottom: 10vh;
-    padding: 0;
-  }
-
-  .connect-container li{
-    float: none;
-  }
-}
-
 
 
 .spacer {
@@ -121,19 +114,27 @@ body,
   bottom: 10vh
 }
 
-.iphone {
-  display: block;
-  height: 75vh;
-  margin: 7.5vh auto;
+
+.employer-link,
+.work-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.employer-link {
+  color: #F8EEE7;
 }
 
 @media (min-width: 830px) {
-  .iphone {
-    display: block;
-    height: 75vh;
-    margin: 12.5vh auto;
+  .work-link {
+    text-decoration: none;
   }
+}
 
+.iphone {
+  display: block;
+  height: 75vh;
+  margin: 12.5vh auto;
 }
 
 .iphone:after {
@@ -156,4 +157,79 @@ body,
 
 .badge {
   height: 20px;
+}
+
+.close-icon {
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #49274A;
+  text-align: center;
+}
+
+.close-icon .fa {
+  line-height: 31px;
+  color: #F8EEE7;
+}
+
+@media (min-width: 830px) {
+  .close-icon {
+    display: none;
+  }
+}
+
+.left-content.open {
+  animation: slideOpenOne .35s 1 forwards;
+}
+
+.right-content.open {
+  animation: slideOpenTwo .35s 1 forwards;
+}
+
+.left-content.open.close {
+  animation: slideCloseOne .35s 1 forwards;
+}
+
+.right-content.open.close {
+  animation: slideCloseTwo .35s 1 forwards;
+}
+
+@keyframes slideOpenTwo {
+  0% {
+    left: 100%;
+  }
+  100% {
+   left: 0%;
+  }
+}
+
+@keyframes slideOpenOne {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -25%;
+  }
+}
+
+@keyframes slideCloseTwo {
+  0% {
+    left: 0%;
+  }
+  100% {
+   left: 100%;
+  }
+}
+
+@keyframes slideCloseOne {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 0%;
+  }
 }
