@@ -12,7 +12,7 @@ body,
 .right-content {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin 0;
 }
 
@@ -80,7 +80,7 @@ body,
   display: inline-block;
   text-align: center;
   width: 100%;
-  bottom: 20vh;
+  bottom: 10%;
   padding: 0;
 }
 
@@ -119,8 +119,8 @@ body,
 
 .iphone {
   display: block;
-  height: 75vh;
-  margin: 12.5vh auto;
+  height: 75%;
+  margin: 12.5% auto;
 }
 
 .iphone:after {
