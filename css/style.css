@@ -80,7 +80,7 @@ body,
   display: inline-block;
   text-align: center;
   width: 100%;
-  top: 0%;
+  bottom: 10%;
   padding: 0;
 }
 
@@ -119,8 +119,29 @@ body,
 
 .iphone {
   display: block;
-  height: 75%;
-  margin: 12.5% auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 50%;
+}
+
+@media (min-width: 640px) {
+  .iphone {
+    width: 37.5%;
+  }
+}
+
+@media (min-width: 830px) {
+  .iphone {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .iphone {
+    width: 35%;
+  }
 }
 
 .iphone:after {
