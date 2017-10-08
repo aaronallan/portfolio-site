@@ -113,6 +113,7 @@ body,
 
 @media (min-width: 830px) {
   .work-link {
+    cursor: default;
     text-decoration: none;
   }
 }
