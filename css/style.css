@@ -80,7 +80,7 @@ body,
   display: inline-block;
   text-align: center;
   width: 100%;
-  bottom: 10vh;
+  bottom: 20vh;
   padding: 0;
 }
 
@@ -97,23 +97,9 @@ body,
   text-decoration: none;
 }
 
-
 .spacer {
   margin: 0 8px;
 }
-
-.resume-link {
-  position: absolute;
-  left: 3em;
-  bottom: 10vh;
-}
-
-.email-link {
-  position: absolute;
-  right: 3em;
-  bottom: 10vh
-}
-
 
 .employer-link,
 .work-link {
