@@ -80,6 +80,13 @@ body,
   padding: 0;
 }
 
+@media (min-width: 830px) {
+  .connect-container {
+    position: absolute;
+    bottom: 10%;
+  }
+}
+
 
 .connect-container li{
   display: inline-block;
