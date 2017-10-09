@@ -18,6 +18,7 @@ body,
 
 .left-content {
   background: #49274A;
+  overflow: auto;
 }
 
 .right-content {
