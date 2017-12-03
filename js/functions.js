@@ -1,67 +1,28 @@
-const leftContent = document.querySelector('.left-content');
-const rightContent = document.querySelector('.right-content');
-const closeLink = document.querySelector('.close-icon');
-const workLink = document.querySelector('.work-link');
+// TODO rename these project 1, 2, etc.
+const ycf = document.querySelector('.ycf-link');
+const ycfContainer = document.querySelector('.ycf');
 
-function handleMobileAnimation() {
+const nff = document.querySelector('.nff-link');
+const nffContainer = document.querySelector('.nff');
 
-		workLink.addEventListener('click', () => {
-			if (window.matchMedia('screen and (max-width: 830px)').matches) {
-				leftContent.classList.add('open');
-			  rightContent.classList.add('open');
-			};
-		});
+function registerEventListeners() {
+	ycf.addEventListener('click', () => {
+		ycfContainer.classList.add('open');
+	  nffContainer.classList.add('open');
+	});
 
-		closeLink.addEventListener('click', () => {
-			if (window.matchMedia('screen and (max-width: 830px)').matches) {
-				leftContent.classList.add('close');
-			  rightContent.classList.add('close');
-			  setTimeout(() => {
-			  	leftContent.classList.remove('close');
-			  	rightContent.classList.remove('close');
-			    leftContent.classList.remove('open');
-			  	rightContent.classList.remove('open');
-			  }, 350);
-			}
-		});
-}
-
-function removeMobileClasses() {
-	if (window.matchMedia('screen and (min-width: 830px)').matches) {
-		leftContent.classList.remove('close');
-		rightContent.classList.remove('close');
-		leftContent.classList.remove('open');
-		rightContent.classList.remove('open');
-	}
+	nff.addEventListener('click', () => {
+		nffContainer.classList.add('close');
+	  ycfContainer.classList.add('close');
+	  setTimeout(() => {
+	  	nffContainer.classList.remove('close');
+	  	ycfContainer.classList.remove('close');
+	    nffContainer.classList.remove('open');
+	  	ycfContainer.classList.remove('open');
+	  }, 350);
+	});
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  console.log("DOM fully loaded and parsed");
-	handleMobileAnimation();
-});
-
-(function() {
-    var throttle = function(type, name, obj) {
-        obj = obj || window;
-        var running = false;
-        var func = function() {
-            if (running) { return; }
-            running = true;
-             requestAnimationFrame(function() {
-                obj.dispatchEvent(new CustomEvent(name));
-                running = false;
-            });
-        };
-        obj.addEventListener(type, func);
-    };
-
-    /* init - you can init any event */
-    throttle("resize", "optimizedResize");
-})();
-
-// handle event
-window.addEventListener("optimizedResize", function() {
-    console.log("Resource conscious resize callback!");
-		handleMobileAnimation();
-		removeMobileClasses();
+	registerEventListeners();
 });

@@ -10,10 +10,11 @@ body,
 
 .left-content,
 .right-content {
-  position: absolute;
+  float: left;
   width: 100%;
   height: 100%;
   margin 0;
+  overflow: hidden;
 }
 
 .left-content {
@@ -37,13 +38,24 @@ body,
   .right-content {
     left: inherit;
   }
+
+  .nff,
+  .ycf {
+    background: #94618E;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin 0;
+  }
+
+  .ycf {
+    left: 100%;
+  }
 }
 
 .welcome-container {
   display: inline-block;
   position: relative;
-  /*top: 30%;
-  transform: translateY(-30%);*/
 }
 
 @media (min-width: 830px) {
@@ -57,8 +69,8 @@ body,
   text-align: center;
   font-size: 1.25em;
   line-height: 1.5em;
-  font-weight: 400;
-  font-family: 'Arial', sans-serif;
+  font-weight: 100;
+  font-family: sans-serif;
   color: #F8EEE7;
   padding: 1em 0.5em;
   margin: 2em 0 0;
@@ -87,7 +99,6 @@ body,
     bottom: 10%;
   }
 }
-
 
 .connect-container li{
   display: inline-block;
@@ -188,25 +199,68 @@ body,
   color: #F8EEE7;
 }
 
+.header-container {
+  height: calc(10vh);
+  background: 'red';
+}
+
+.project-title {
+  color: #fff;
+  display: inline-block;
+  padding: 0 2em;
+  line-height: calc(10vh);
+  font-weight: 500;
+  font-family: sans-serif;
+}
+
+.image-container {
+  overflow: hidden;
+  height: calc(80vh);
+}
+.paging-container {
+  margin: 1em 0;
+  height: calc(10vh);
+  text-align: center;
+}
+
+.circle {
+  display: inline-block;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  margin: 0 3px;
+  line-height: calc(10vh);
+  border-radius: 50%;
+  border: solid 1px #fff;
+}
+
+.circle:hover {
+  background: #fff;
+}
+
+.active {
+  background: #fff;
+}
+
 @media (min-width: 830px) {
   .close-icon {
     display: none;
   }
 }
 
-.left-content.open {
+.nff.open {
   animation: slideOpenOne .35s 1 forwards;
 }
 
-.right-content.open {
+.ycf.open {
   animation: slideOpenTwo .35s 1 forwards;
 }
 
-.left-content.open.close {
+.nff.open.close {
   animation: slideCloseOne .35s 1 forwards;
 }
 
-.right-content.open.close {
+.ycf.open.close {
   animation: slideCloseTwo .35s 1 forwards;
 }
 
