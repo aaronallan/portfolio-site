@@ -70,6 +70,12 @@ body,
   .ycf {
     height: 100%;
   }
+
+  .center-vertically {
+    position: relative;
+    top: 55%;
+    transform: translateY(-50%);
+  }
 }
 
 .welcome-container {
@@ -179,7 +185,6 @@ body,
 
 .iphone {
   display: block;
-  position: relative;
   margin: 0 auto;
   width: 175px;
 }
@@ -193,8 +198,6 @@ body,
 @media (min-width: 850px) {
   .iphone {
     width: 200px;
-    top: 55%;
-    transform: translateY(-50%);
   }
 }
 
