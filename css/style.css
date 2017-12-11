@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 .container {
@@ -5,26 +11,47 @@ body,
   width: 100%;
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .left-content,
 .right-content {
   float: left;
   width: 100%;
-  height: 100%;
+  min-height: 50%;
   margin 0;
   overflow: hidden;
 }
 
+@media (min-width: 830px) {
+  .left-content,
+  .right-content {
+    height: 100%;
+  }
+}
+
 .left-content {
   background: #49274A;
-  overflow: auto;
 }
 
 .right-content {
   background: #94618E;
   left: 100%;
+}
+
+.nff,
+.ycf {
+  position: absolute;
+  width: 100%;
+  margin 0;
+}
+
+.nff {
+  background: #94618E;
+}
+.ycf {
+  left: 100%;
+  background: #FF9804;
 }
 
 @media (min-width: 830px) {
@@ -41,62 +68,79 @@ body,
 
   .nff,
   .ycf {
-    background: #94618E;
-    position: absolute;
-    width: 100%;
     height: 100%;
-    margin 0;
-  }
-
-  .ycf {
-    left: 100%;
   }
 }
 
 .welcome-container {
   display: inline-block;
   position: relative;
+  padding: 2em;
 }
 
 @media (min-width: 830px) {
   .welcome-container {
-    top: 50%;
-    transform: translateY(-50%);
+    height: calc(90vh);
   }
 }
 
 .welcome-text {
-  text-align: center;
+  text-align: left;
   font-size: 1.25em;
   line-height: 1.5em;
   font-weight: 100;
   font-family: sans-serif;
   color: #F8EEE7;
-  padding: 1em 0.5em;
-  margin: 2em 0 0;
+}
+
+.desktop {
+  display: none;
+}
+
+.mobile {
+  display: inline;
 }
 
 @media (min-width: 830px) {
   .welcome-text {
-    text-align: left;
     font-size: 1.5em;
     line-height: 1.5em;
-    padding: 0 2em;
     margin: 0;
+    position: relative;
+    top: 55%;
+    transform: translateY(-50%);
+  }
+
+  .desktop {
+    display: inline;
+  }
+
+  .mobile {
+    display: none;
   }
 }
 
 .connect-container {
-  display: inline-block;
+  display: none;
   text-align: center;
   width: 100%;
   padding: 0;
 }
 
+.connect-container.mobile {
+  display: inline-block;
+  text-align: right;
+}
+
+
+
 @media (min-width: 830px) {
   .connect-container {
-    position: absolute;
-    bottom: 10%;
+    display: inline-block;
+  }
+
+  .connect-container.mobile {
+    display: none;
   }
 }
 
@@ -136,27 +180,27 @@ body,
 .iphone {
   display: block;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   margin: 0 auto;
-  width: 50%;
+  width: 175px;
 }
 
 @media (min-width: 640px) {
   .iphone {
-    width: 37.5%;
+    width: 150px;
   }
 }
 
-@media (min-width: 830px) {
+@media (min-width: 850px) {
   .iphone {
-    width: 40%;
+    width: 200px;
+    top: 55%;
+    transform: translateY(-50%);
   }
 }
 
 @media (min-width: 1200px) {
   .iphone {
-    width: 35%;
+    width: 225px;
   }
 }
 
@@ -201,26 +245,68 @@ body,
 
 .header-container {
   height: calc(10vh);
-  background: 'red';
 }
 
-.project-title {
+@media (min-width: 830px) {
+  .header-container {
+    background: transparent;
+  }
+}
+
+.project-info {
   color: #fff;
-  display: inline-block;
+  display: block;
   padding: 0 2em;
-  line-height: calc(10vh);
   font-weight: 500;
   font-family: sans-serif;
+  text-align: center;
+}
+
+.project-info.title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.project-info.available {
+  font-size: 12px;
+  font-weight: 100;
 }
 
 .image-container {
-  overflow: hidden;
-  height: calc(80vh);
+  padding: 2em 0 0;
 }
+
+.info-container {
+  margin-top: 2em;
+}
+
 .paging-container {
-  margin: 1em 0;
+  display: table-cell;
+  width: calc(100vw);
   height: calc(10vh);
   text-align: center;
+  vertical-align: middle;
+}
+
+.paging-container.connect {
+  display: none;
+}
+
+@media (min-width: 830px) {
+  .paging-container,
+  .header-container {
+    width: calc(50vw);
+  }
+
+  .image-container {
+    overflow: hidden;
+    height: calc(90vh);
+  }
+
+  .paging-container.connect {
+    display: block;
+  }
 }
 
 .circle {
@@ -257,11 +343,11 @@ body,
 }
 
 .nff.open.close {
-  animation: slideCloseOne .35s 1 forwards;
+  animation: slideCloseOne .4s 1 forwards;
 }
 
 .ycf.open.close {
-  animation: slideCloseTwo .35s 1 forwards;
+  animation: slideCloseTwo .4s 1 forwards;
 }
 
 @keyframes slideOpenTwo {
