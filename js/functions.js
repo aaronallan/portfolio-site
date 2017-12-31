@@ -4,16 +4,19 @@ const ycfContainer = document.querySelector('.ycf');
 
 const nff = document.querySelector('.nff-link');
 const nffContainer = document.querySelector('.nff');
+const employerLink = document.querySelector('.employer-link');
 
 function registerEventListeners() {
 	ycf.addEventListener('click', () => {
 		ycfContainer.classList.add('open');
 	  nffContainer.classList.add('open');
+		employerLink.classList.add('nff-open');
 	});
 
 	nff.addEventListener('click', () => {
 		nffContainer.classList.add('close');
 	  ycfContainer.classList.add('close');
+		employerLink.classList.remove('nff-open');
 	  setTimeout(() => {
 	  	nffContainer.classList.remove('close');
 	  	ycfContainer.classList.remove('close');

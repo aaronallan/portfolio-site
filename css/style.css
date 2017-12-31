@@ -18,8 +18,7 @@ body,
 .right-content {
   float: left;
   width: 100%;
-  min-height: 50%;
-  margin 0;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -31,11 +30,10 @@ body,
 }
 
 .left-content {
-  background: #49274A;
+  background: #ffffff;
 }
 
 .right-content {
-  background: #94618E;
   left: 100%;
 }
 
@@ -51,7 +49,7 @@ body,
 }
 .ycf {
   left: 100%;
-  background: #FF9804;
+  background: orange;
 }
 
 @media (min-width: 830px) {
@@ -81,7 +79,7 @@ body,
 .welcome-container {
   display: inline-block;
   position: relative;
-  padding: 2em;
+  padding: 1em;
 }
 
 @media (min-width: 830px) {
@@ -96,7 +94,6 @@ body,
   line-height: 1.5em;
   font-weight: 100;
   font-family: sans-serif;
-  color: #F8EEE7;
 }
 
 .desktop {
@@ -152,12 +149,10 @@ body,
 
 .connect-container li{
   display: inline-block;
-  font-family: 'Arial', sans-serif;
-  color: #F8EEE7;
 }
 
 .connect-container li a{
-  color: #F8EEE7;
+  color: #000;
   font-family: 'Arial', sans-serif;
   text-decoration: none;
 }
@@ -168,12 +163,18 @@ body,
 
 .employer-link,
 .work-link {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .employer-link {
-  color: #F8EEE7;
+  color: #94618E;
+  transition: color .35s;
+}
+
+.employer-link.nff-open {
+  color: orange;
+  transition: color .35s;
 }
 
 @media (min-width: 830px) {
@@ -257,12 +258,11 @@ body,
 }
 
 .project-info {
-  color: #fff;
-  display: block;
-  padding: 0 2em;
-  font-weight: 500;
-  font-family: sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
+  font-weight: 100;
+  font-size: 16px;
+  text-transform: uppercase
 }
 
 .project-info.title {
@@ -277,19 +277,24 @@ body,
 }
 
 .image-container {
-  padding: 2em 0 0;
+  padding: 3em 0 1em;
+}
+
+@media (min-width: 830px) {
+  .image-container {
+    padding: 0;
+  }
 }
 
 .info-container {
   margin-top: 2em;
 }
 
-.paging-container {
-  display: table-cell;
-  width: calc(100vw);
-  height: calc(10vh);
-  text-align: center;
-  vertical-align: middle;
+.arrow {
+  position: absolute;
+  right: 0;
+  margin: 1em;
+  width: 20px;
 }
 
 .paging-container.connect {
@@ -320,15 +325,15 @@ body,
   margin: 0 3px;
   line-height: calc(10vh);
   border-radius: 50%;
-  border: solid 1px #fff;
+  border: solid 1px #000;
 }
 
 .circle:hover {
-  background: #fff;
+  background: #000;
 }
 
 .active {
-  background: #fff;
+  background: #000;
 }
 
 @media (min-width: 830px) {
