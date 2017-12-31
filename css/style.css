@@ -29,8 +29,11 @@ body,
   }
 }
 
-.left-content {
-  background: #ffffff;
+@media (min-width: 400px) {
+  .left-content,
+  .right-content {
+    min-height: 42.5%;
+  }
 }
 
 .right-content {
@@ -41,7 +44,7 @@ body,
 .ycf {
   position: absolute;
   width: 100%;
-  margin 0;
+  margin: 0;
 }
 
 .nff {
@@ -84,7 +87,7 @@ body,
 
 @media (min-width: 830px) {
   .welcome-container {
-    height: calc(90vh);
+    height: calc(90vh - 3em);
   }
 }
 
@@ -110,7 +113,7 @@ body,
     line-height: 1.5em;
     margin: 0;
     position: relative;
-    top: 55%;
+    top: 50%;
     transform: translateY(-50%);
   }
 
@@ -131,8 +134,11 @@ body,
 }
 
 .connect-container.mobile {
-  display: inline-block;
+  position: absolute;
+  right: 1em;
   text-align: right;
+  display: inline-block;
+  width: 50%;
 }
 
 
@@ -230,31 +236,9 @@ body,
   height: 20px;
 }
 
-.close-icon {
-  display: inline-block;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #49274A;
-  text-align: center;
-}
-
-.close-icon .fa {
-  line-height: 31px;
-  color: #F8EEE7;
-}
-
 .header-container {
-  height: calc(10vh);
-}
-
-@media (min-width: 830px) {
-  .header-container {
-    background: transparent;
-  }
+  overflow: hidden;
+  padding: 0 1em 3em;
 }
 
 .project-info {
@@ -295,6 +279,7 @@ body,
   right: 0;
   margin: 1em;
   width: 20px;
+  cursor: pointer;
 }
 
 .paging-container.connect {
@@ -302,8 +287,7 @@ body,
 }
 
 @media (min-width: 830px) {
-  .paging-container,
-  .header-container {
+  .paging-container {
     width: calc(50vw);
   }
 
@@ -336,10 +320,43 @@ body,
   background: #000;
 }
 
+.image-filter {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 1;
+  left: 1em;
+
+}
+
+.avatar {
+  width: 100%;
+}
+
+.filter {
+  width: 30px;
+  height: 30px;
+  background:rgb(148,97,142);
+  transition: background .35s;
+  border-radius: 50%;
+  position: relative;
+  margin: 0.5em 0;
+}
+
 @media (min-width: 830px) {
-  .close-icon {
-    display: none;
+  .image-filter {
+    top: 0.75em;
   }
+
+  .filter {
+    margin: 0;
+  }
+}
+
+.filter.open {
+  background: orange;
+  transition: background .35s;
 }
 
 .nff.open {
