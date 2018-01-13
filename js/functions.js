@@ -6,6 +6,7 @@ const nff = document.querySelector('.nff-link');
 const nffContainer = document.querySelector('.nff');
 const employerLink = document.querySelector('.employer-link');
 const avatar = document.querySelector('.filter');
+const djTrigger = document.querySelector('.dj-trigger');
 
 function registerEventListeners() {
 	ycf.addEventListener('click', () => {
@@ -28,6 +29,11 @@ function registerEventListeners() {
 	  	ycfContainer.classList.remove('open');
 	  }, 350);
 	});
+
+	djTrigger.addEventListener('mouseover', () => {
+		avatar.classList.add('rotate');
+		setTimeout(() => avatar.classList.remove('rotate'), 9000)
+	})
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {

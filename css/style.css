@@ -337,11 +337,19 @@ body,
 .filter {
   width: 30px;
   height: 30px;
-  background:rgb(148,97,142);
+  background: url('../images/avatar-purple.png');
+  background-size: cover;
   transition: background .35s;
   border-radius: 50%;
   position: relative;
   margin: 0.5em 0;
+}
+
+.filter.rotate {
+  animation-name: spin;
+  animation-duration: 3000ms;
+  animation-iteration-count: 3;
+  animation-timing-function: linear;
 }
 
 @media (min-width: 830px) {
@@ -355,7 +363,8 @@ body,
 }
 
 .filter.open {
-  background: orange;
+  background: url('../images/avatar-orange.png');
+  background-size: cover;
   transition: background .35s;
 }
 
@@ -408,5 +417,14 @@ body,
   }
   100% {
     left: 0%;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
   }
 }
