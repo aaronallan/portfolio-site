@@ -10,12 +10,12 @@ const djTrigger = document.querySelector('.dj-trigger');
 
 function registerEventListeners() {
 	ycf.addEventListener('click', () => {
-		[ycfContainer, nffContainer, avatar, employerLink].map(el => el.classList.add('open'));
+		[ycfContainer, nffContainer, avatar, employerLink, djTrigger].map(el => el.classList.add('open'));
 	});
 
 	nff.addEventListener('click', () => {
 		[nffContainer, ycfContainer].map(el => el.classList.add('close'));
-		[employerLink, avatar].map(el => el.classList.remove('open'));
+		[employerLink, avatar, djTrigger].map(el => el.classList.remove('open'));
 
 	  setTimeout(() => {
 			[nffContainer, ycfContainer].map(el => el.classList.remove('close'));
