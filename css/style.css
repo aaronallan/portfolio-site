@@ -85,6 +85,8 @@ body,
   padding: 1em;
 }
 
+
+
 @media (min-width: 830px) {
   .welcome-container {
     height: calc(90vh - 3em);
@@ -97,6 +99,10 @@ body,
   line-height: 1.5em;
   font-weight: 100;
   font-family: sans-serif;
+}
+
+.welcome-text p:first-child {
+  margin: 0;
 }
 
 .desktop {
@@ -178,7 +184,7 @@ body,
   transition: color .35s;
 }
 
-.employer-link.nff-open {
+.employer-link.open {
   color: orange;
   transition: color .35s;
 }

@@ -10,23 +10,16 @@ const djTrigger = document.querySelector('.dj-trigger');
 
 function registerEventListeners() {
 	ycf.addEventListener('click', () => {
-		ycfContainer.classList.add('open');
-		nffContainer.classList.add('open');
-		avatar.classList.add('open');
-		employerLink.classList.add('nff-open');
+		[ycfContainer, nffContainer, avatar, employerLink].map(el => el.classList.add('open'));
 	});
 
 	nff.addEventListener('click', () => {
-		nffContainer.classList.add('close');
-		ycfContainer.classList.add('close');
-		ycfContainer.classList.add('close');
-		employerLink.classList.remove('nff-open');
-		avatar.classList.remove('open');
+		[nffContainer, ycfContainer].map(el => el.classList.add('close'));
+		[employerLink, avatar].map(el => el.classList.remove('open'));
+
 	  setTimeout(() => {
-	  	nffContainer.classList.remove('close');
-	  	ycfContainer.classList.remove('close');
-	    nffContainer.classList.remove('open');
-	  	ycfContainer.classList.remove('open');
+			[nffContainer, ycfContainer].map(el => el.classList.remove('close'));
+			[nffContainer, ycfContainer].map(el => el.classList.remove('open'));
 	  }, 350);
 	});
 
