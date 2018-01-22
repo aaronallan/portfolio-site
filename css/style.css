@@ -101,9 +101,9 @@ body,
   font-family: sans-serif;
 }
 
-.welcome-text p:first-child {
+/* .welcome-text p:first-child {
   margin: 0;
-}
+} */
 
 .desktop {
   display: none;
