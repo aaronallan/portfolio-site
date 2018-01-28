@@ -29,8 +29,11 @@ function registerEventListeners() {
 	// })
 }
 
-function fadeIn(obj) {
-	obj.classList.add('fadeIn');
+function loadIphoneImages() {
+	var images = document.querySelectorAll('.iphone');
+	Array.prototype.forEach.call(images, function(image, index) {
+		image.classList.add('fadeIn');
+	});
 }
 
 const pic = new Image();
@@ -41,4 +44,5 @@ pic2.src="images/avatar-orange.png";
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	registerEventListeners();
+	loadIphoneImages();
 });
