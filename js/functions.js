@@ -29,6 +29,16 @@ function registerEventListeners() {
 	// })
 }
 
+function fadeIn(obj) {
+	obj.classList.add('fadeIn');
+}
+
+const pic = new Image();
+const pic2 = new Image();
+
+pic.src="images/avatar-purple.png";
+pic2.src="images/avatar-orange.png";
+
 document.addEventListener("DOMContentLoaded", function(event) {
 	registerEventListeners();
 });
