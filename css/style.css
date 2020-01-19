@@ -19,7 +19,7 @@ body,
   float: left;
   width: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 
 @media (min-width: 830px) {
@@ -36,13 +36,18 @@ body,
   }
 }
 
-.right-content {
+/* .right-content {
   left: 100%;
+} */
+
+.left-content {
+  display: flex;
+  background: #fafafa;
 }
 
 .nff,
 .ycf {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   margin: 0;
 }
@@ -51,20 +56,22 @@ body,
   background: #94618E;
 }
 .ycf {
-  left: 100%;
-  background: orange;
+  /* left: 100%; */
+  background: rgb(105, 163, 201);
 }
 
 @media (min-width: 830px) {
   .left-content,
   .right-content {
+    display: flex;
     float: left;
     position: relative;
     width: 50%;
   }
 
   .right-content {
-    left: inherit;
+    /* left: inherit; */
+    flex-direction: column;
   }
 
   .nff,
@@ -89,7 +96,7 @@ body,
 
 @media (min-width: 830px) {
   .welcome-container {
-    height: calc(90vh - 3em);
+    /* height: calc(90vh - 3em); */
   }
 }
 
@@ -99,11 +106,19 @@ body,
   line-height: 1.5em;
   font-weight: 100;
   font-family: sans-serif;
+  padding: 0 2rem;
 }
 
-/* .welcome-text p:first-child {
+.welcome-text h1 {
   margin: 0;
-} */
+  font-size: 3rem;
+}
+
+.welcome-text p {
+  margin: 1rem 0;
+}
+
+
 
 .desktop {
   display: none;
@@ -143,7 +158,7 @@ body,
   position: absolute;
   right: 1em;
   text-align: right;
-  display: inline-block;
+  display: none;
   width: 50%;
 }
 
@@ -151,7 +166,7 @@ body,
 
 @media (min-width: 830px) {
   .connect-container {
-    display: inline-block;
+    display: none;
   }
 
   .connect-container.mobile {
@@ -200,8 +215,23 @@ body,
   min-height: 300px;
 }
 
+.iphone6 {
+  display: flex;
+  /* background: url('../images/black-iphone-6.png'); */
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.iphone6 video {
+  width: 90%;
+  border-radius: 33px;
+}
+
 .iphone {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   width: 175px;
   opacity: 0;
@@ -226,6 +256,7 @@ body,
 @media (min-width: 1200px) {
   .iphone {
     width: 225px;
+    height: 460px;
   }
 }
 
@@ -253,7 +284,12 @@ body,
 
 .header-container {
   overflow: hidden;
-  padding: 0 1em 3em;
+  padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border-right: solid 1px #ddd;
 }
 
 .project-info {
@@ -277,6 +313,9 @@ body,
 
 .image-container {
   padding: 3em 0 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 830px) {
@@ -308,7 +347,7 @@ body,
 
   .image-container {
     overflow: hidden;
-    height: calc(90vh);
+    height: calc(100vh);
   }
 
   .paging-container.connect {
@@ -352,7 +391,7 @@ body,
 .filter {
   width: 30px;
   height: 30px;
-  background: url('../images/avatar-purple.png');
+  background: url('../images/avatar.png');
   background-size: cover;
   transition: background .35s;
   border-radius: 50%;
@@ -378,7 +417,7 @@ body,
 }
 
 .filter.open {
-  background: url('../images/avatar-orange.png');
+  background: url('../images/avatar.png');
   background-size: cover;
   transition: background .35s;
 }
