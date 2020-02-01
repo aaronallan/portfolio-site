@@ -4,7 +4,6 @@ const ycfContainer = document.querySelector('.ycf');
 
 const nff = document.querySelector('.nff-link');
 const nffContainer = document.querySelector('.nff');
-const employerLink = document.querySelector('.employer-link');
 const avatar = document.querySelector('.filter');
 // const djTrigger = document.querySelector('.dj-trigger');
 
@@ -15,7 +14,7 @@ function registerEventListeners() {
 
 	nff.addEventListener('click', () => {
 		[nffContainer, ycfContainer].map(el => el.classList.add('close'));
-		[employerLink, avatar].map(el => el.classList.remove('open'));
+		[avatar].map(el => el.classList.remove('open'));
 
 	  setTimeout(() => {
 			[nffContainer, ycfContainer].map(el => el.classList.remove('close'));
