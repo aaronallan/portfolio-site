@@ -39,7 +39,8 @@ body,
 }
 
 .product {
-  display: flex;
+  display: block;
+  width: '100%';
   padding: 2em 0;
   background-color: rgb(244,244,244);
   justify-content: center;
@@ -59,6 +60,7 @@ body,
   border-radius: 10px;
   width: 320px;
   max-width: 94%;
+  margin: 0 auto;
   height: 400px;
   background: rgb(49,84,200);
   background: linear-gradient(90deg, rgba(49,84,200,1) 0%, rgba(49,122,194,1) 100%);
@@ -184,6 +186,7 @@ body,
 
 .avatar-container .avatar {
   width: 5em;
+  height: 5em;
 }
 
 @media (min-width: 830px) {
