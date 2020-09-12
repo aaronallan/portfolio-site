@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": ["4T7L7QL7A7.HomeTurf-Dev", "4T7L7QL7A7.HomeTurf-Ci","4T7L7QL7A7.HomeTurf-Staging", "4T7L7QL7A7.HomeTurf-Prod"],
+                "paths": [ "/app-redirect/*" ]
+            }
+        ]
+    }
+}
