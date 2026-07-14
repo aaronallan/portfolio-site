@@ -1,0 +1,59 @@
+name: Sync resume from Google Doc
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sync-resume
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install poppler-utils
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
+      - name: Download exported PDF
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 \
+            "https://docs.google.com/document/d/${{ secrets.RESUME_DOC_ID }}/export?format=pdf" \
+            -o /tmp/resume-new.pdf
+          # Google returns an HTML error page (not a curl failure) when the
+          # doc isn't link-viewable — never commit that over the real PDF
+          file /tmp/resume-new.pdf | grep -q "PDF document"
+          test "$(stat -c%s /tmp/resume-new.pdf)" -gt 10000
+          pdftotext /tmp/resume-new.pdf /tmp/resume-new.txt
+
+      - name: Commit to master and gh-pages if content changed
+        run: |
+          set -euo pipefail
+          git config user.name "resume-bot"
+          git config user.email "actions@users.noreply.github.com"
+          stamp=$(date -u +%Y%m%d%H%M)
+          for branch in master gh-pages; do
+            git switch "$branch"
+            # Docs PDF exports aren't byte-stable; compare extracted text
+            # so layout-identical re-exports don't create phantom commits
+            if pdftotext pdf/Aaron.Pollock.Resume.pdf /tmp/resume-old.txt 2>/dev/null \
+               && diff -q /tmp/resume-old.txt /tmp/resume-new.txt >/dev/null; then
+              echo "$branch: resume unchanged, skipping"
+              continue
+            fi
+            cp /tmp/resume-new.pdf pdf/Aaron.Pollock.Resume.pdf
+            # bump the cache-busting query so Cloudflare serves the new file
+            sed -E -i "s|pdf/Aaron\.Pollock\.Resume\.pdf(\?v=[0-9]+)?|pdf/Aaron.Pollock.Resume.pdf?v=${stamp}|" index.html
+            git add pdf/Aaron.Pollock.Resume.pdf index.html
+            git commit -m "Update resume from Google Doc (${stamp})"
+            git push origin "$branch"
+          done
