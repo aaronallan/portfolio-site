@@ -110,6 +110,15 @@ body,
   left: 20px;
 }
 
+.js .product-inner img {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.js .product-inner img.loaded {
+  opacity: 1;
+}
+
 .product-inner .description {
   display: flex;
   flex-direction: column;
